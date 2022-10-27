@@ -8,7 +8,7 @@ import Home from './home';
 const LinkedIn = () => {
   return (
       <BrowserRouter>
-        <Navbar />
+        <Navbar active='home'/>
         <div className='container'>
           
           <Routes>

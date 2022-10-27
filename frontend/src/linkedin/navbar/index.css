@@ -16,9 +16,19 @@
    border-radius: 25px;
 }
 
+.nav {
+   padding-bottom: 0px;
+}
+
 .nav > li {
    margin-right: 20px;
+   margin-bottom: 0px;
+}
 
+.active {
+   list-style-position:inside;
+   border-bottom: 3px solid;
+   border-bottom-color: #c1c3c6;
 }
 
 .nav-item:hover {
