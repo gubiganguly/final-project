@@ -1,0 +1,20 @@
+.navbar {
+    width: 100%;
+    background-color: #222325;
+    display: flex;
+}
+
+.wd-nudge-up {
+    bottom: 7px;
+    left: 30px;
+ }
+ 
+ .profile-image {
+    width: 30x;
+    height: 30px;
+    border-radius: 25px;
+ }
+
+ .nav-link:hover {
+    filter: brightness(115%);
+ }
