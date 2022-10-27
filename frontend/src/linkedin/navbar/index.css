@@ -1,20 +1,33 @@
 .navbar {
-    width: 100%;
-    background-color: #222325;
-    display: flex;
+   width: 100%;
+   background-color: #222325;
 }
 
 .wd-nudge-up {
-    bottom: 7px;
-    left: 30px;
- }
- 
- .profile-image {
-    width: 30x;
-    height: 30px;
-    border-radius: 25px;
- }
+   bottom: 7px;
+   left: 30px;
+}
 
- .nav-link:hover {
-    filter: brightness(115%);
- }
+
+
+.profile-image {
+   width: 30x;
+   height: 30px;
+   border-radius: 25px;
+}
+
+.nav > li {
+   margin-right: 20px;
+
+}
+
+.nav-item:hover {
+   filter: brightness(115%);
+}
+
+.supporting-text {
+   color: #c1c3c6;
+   font-size: 13px;
+   font-weight: 500;
+}
+
