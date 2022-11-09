@@ -1,0 +1,12 @@
+.post-button:hover {
+    filter: brightness(130%);
+}
+
+.post-item {
+    background-color: transparent;
+}
+
+.post-item:hover {
+    background-color: #c1c3c6;;
+    filter: brightness(115%);
+}

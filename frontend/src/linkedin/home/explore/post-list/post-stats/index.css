@@ -1,0 +1,9 @@
+.stat {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.stat:hover {
+    background-color: #F5F5F5;
+}

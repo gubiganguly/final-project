@@ -1,10 +1,10 @@
 .navbar {
    width: 100%;
-   background-color: #222325;
+   background-color: white;
 }
 
 .wd-nudge-up {
-   bottom: 7px;
+   bottom: 10px;
    left: 30px;
 }
 
@@ -28,7 +28,7 @@
 .active {
    list-style-position:inside;
    border-bottom: 3px solid;
-   border-bottom-color: #c1c3c6;
+   border-bottom-color: #97A2A8;
 }
 
 .nav-item:hover {
@@ -36,7 +36,7 @@
 }
 
 .supporting-text {
-   color: #c1c3c6;
+   color: #97A2A8;
    font-size: 13px;
    font-weight: 500;
 }

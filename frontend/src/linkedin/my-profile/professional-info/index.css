@@ -1,0 +1,12 @@
+.edit {
+    background-color: transparent;
+}
+
+.edit:hover {
+    background-color: #c1c3c6;;
+    filter: brightness(115%);
+}
+
+.profilePic {
+    border: #AB6767;
+}

@@ -1,0 +1,13 @@
+.light-text {
+    font-size: 14px;
+    font-weight: 350;
+}
+
+.name {
+    text-align: left;
+    margin-left: 60px;
+}
+
+.caption {
+    text-align: left;
+}
