@@ -8,6 +8,7 @@
 "hasProfileImage": true,
 "image": "/images/profile.jpeg",
 "connectionCount": 291,
+"coins": 420,
 "about": "I am a fourth year CS student at Northeastern University. I am paving a path to get into the blockchain technology sector as I am currently working on my own blockchain based startup and am passionate to see where this industry will go. I have worked roles in Web Development and Data Science and am currently positioning my self to get into the Blockchain/Cryptocurrency industry.",
 "experience": [
     {
@@ -37,24 +38,26 @@
 "education": [
     {
         "school": "Northeastern",
+        "primary": true,
         "degree": "Bachelor's degree in,",
         "major": "Computer Science",
         "startDate": "08/29/2020",
         "endDate": "05/1/2023",
         "image": "/images/northeastern.png",
-        "awards": ["Dean's List", "Valadectorian"]
+        "clubs": ["IDEA Venture Accelerator", "Entrepreneurship Club"]
     },
     {
         "school": "Okemos Highschool",
+        "primary": false,
         "degree": "High School Diploma",
         "startDate": "08/29/2014",
         "endDate": "05/1/2018",
         "major": "", 
         "image": "/images/okemos.png",
-        "awards": ["Dean's List"]
+        "clubs": ["Robotics Club"]
     }
 ],
 
 "skills": ["Python", "React", "Node"],
-"hobbies": ["Drone racing", "Gym", "Coding"]
+"awards": ["Rising Star Award"]
 }

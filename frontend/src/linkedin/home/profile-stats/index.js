@@ -18,8 +18,13 @@ const ProfileStats = () => {
             </div>
             
             <div className='list-group-item'>
+
                 <span className='fw-bold text-secondary float-start'>Connections: </span>
                 <span className='fw-bold text-success float-end'>494</span>
+                <span className='fw-bold text-secondary float-start'>Coins:</span>
+                <span className='fw-bold text-primary float-end'>1,324</span>
+                <span className='fw-bold text-secondary float-start'>Experience: </span>
+                <span className='fw-bold text-danger float-end'>King</span>
             </div>
         </div>
     )

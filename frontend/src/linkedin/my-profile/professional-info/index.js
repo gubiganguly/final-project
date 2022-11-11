@@ -2,13 +2,16 @@ import React from 'react'
 import './index.css'
 import { useSelector } from 'react-redux'
 import Experience from './experience'
-import About from './about'
-import IntroCard from './intro-card'
+import About from './about/about'
+import IntroCard from './intro-card/intro-card'
 import Education from './education'
+import Skills from './skills'
+import Awards from './awards'
 
 const ProfessionalInfo = () => {
 
     const profile = useSelector(state => state.currentUser)
+
 
     return (
         <div className='list-group'>
@@ -20,13 +23,9 @@ const ProfessionalInfo = () => {
 
             <Education profile={profile} />
 
-            <div className='list-group-item rounded-2 shadow-sm mt-1'>
-                <h1>Skills</h1>
-            </div>
+            <Skills profile={profile} />
 
-            <div className='list-group-item rounded-2 shadow-sm mt-1'>
-                <h1>Awards</h1>
-            </div>
+            <Awards profile={profile} />
         </div>
     )
 }

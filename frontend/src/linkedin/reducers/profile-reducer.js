@@ -2,8 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import currentUser from "./current-user.json"
 
 const profileSlice = createSlice({
-    name: "posts",
-    initialState: currentUser
+    name: "currentUser",
+    initialState: currentUser,
+    reducers: {
+        updateProfile(state, action) {
+            state = {
+                ...state,
+                ...action.payload
+            }
+        }
+    }
 });
 
-export default profileSlice.reducer;
+export const {updateProfile} = profileSlice.actions;
+
+export default profileSlice.reducer; 

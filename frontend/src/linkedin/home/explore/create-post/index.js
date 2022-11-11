@@ -21,11 +21,11 @@ const CreatePost = () => {
     }
 
     const imageClickHandler = () => {
-        console.log("Upload image")
+        console.log("Upload image") 
     }
 
 
-
+ 
     return (
         <div className="row mt-5 mb-3 ms-5 me-5"> 
             <div className="col-auto">
