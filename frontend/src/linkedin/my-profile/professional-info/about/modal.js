@@ -43,7 +43,7 @@ const Modal = ({ open, onClose, profile }) => {
                 </div>
                 <div className='row'>
                     <div className='col'>
-                        <textarea rows="10" cols="73" defaultValue={profile.about} onChange={aboutChangeHandler}>
+                        <textarea className='rounded-2 border' rows="10" cols="73" defaultValue={profile.about} onChange={aboutChangeHandler}>
 
                         </textarea>
                     </div>

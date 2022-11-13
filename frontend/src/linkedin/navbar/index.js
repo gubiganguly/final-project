@@ -1,10 +1,6 @@
 import React from 'react'
 import "./index.css";
 import { Link } from 'react-router-dom'
-import { AiFillHome } from 'react-icons/ai';
-import { FaSuitcase } from 'react-icons/fa';
-import { BsBellFill } from 'react-icons/bs';
-import { BiTask } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
@@ -19,7 +15,7 @@ const Navbar = () => {
   return (
     <div className='navbar row pb-0 pt-0'>
 
-      <Link className='col-2 logoLink' to="/">
+      <Link className='col-2 logoLink' to="/home">
         <img className='logo' alt='' src='/images/logo.png' width={50}/>
       </Link>
 
@@ -35,7 +31,7 @@ const Navbar = () => {
         <ul className="nav float-end me-5">
 
           <li className={`nav-item ${location === '' ? 'active' : ''}`}>
-            <Link className="nav-link pb-0" to="/"><i className="fa-solid fa-house-chimney" style={{color:"#97A2A8", fontSize:"18px"}}></i></Link>
+            <Link className="nav-link pb-0" to="/home"><i className="fa-solid fa-house-chimney" style={{color:"#97A2A8", fontSize:"18px"}}></i></Link>
             <span className='supporting-text'>Home</span>
           </li>
           <li className={`nav-item ${location === 'network' ? 'active' : ''}`}>

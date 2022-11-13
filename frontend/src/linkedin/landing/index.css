@@ -1,0 +1,11 @@
+.global {
+    padding-top: 10%;
+}
+
+input::placeholder {
+    font-size: 20px;
+}
+
+.btn:hover {
+    filter: brightness(110%);
+}
