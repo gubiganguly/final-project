@@ -15,7 +15,7 @@ const Landing = () => {
                     </div>
 
                 </div>
-                <div className='col-5 list-group shadow-sm' style={{ backgroundColor: "white" }}>
+                <div className='col-5 list-group shadow-sm' style={{ backgroundColor: "white"}}>
                     <input className='border border-2 rounded-2 mt-4 ms-4 me-3 ps-3' style={{ height: "60px" }} placeholder="Email or phone number" />
                     <input className='border border-2 rounded-2 mt-3 ms-4 me-3 ps-3' type="password" style={{ height: "60px" }} placeholder="Password" />
                     <Link className='btn bg-primary rounded-3 border-0 pt-2 pb-2 ms-4 me-3 mt-3' to='/home'>
@@ -23,7 +23,7 @@ const Landing = () => {
                     </Link>
                     <Link className='text-decoration-none mt-1'>Forgot password?</Link>
                     <hr></hr>
-                    <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-3 mb-4'>
+                    <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-3 mb-4' to='/create-profile'>
                         <span className='fw-bold text-light' style={{ fontSize: "25px" }}>Create New Account</span>
                     </Link>
                 </div>

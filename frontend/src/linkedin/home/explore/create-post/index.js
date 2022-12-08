@@ -42,13 +42,13 @@ const CreatePost = () => {
                         Post
                     </button>
                     <div className="row text-primary fs-2">
-                        <button className="post-item col border-0 rounded-1">
+                        <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add image">
                             <i className="fa-regular fa-image" style={{color: "#94D1F7"}}></i>
                         </button>
-                        <button className="post-item col border-0 rounded-1">
+                        <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add task">
                             <BiTask color="#AB6767"/>
                         </button>
-                        <button className="post-item col border-0 rounded-1">
+                        <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add event">
                             <i className="fa-regular fa-calendar-days" style={{color: "#F7ADAD"}}></i>
                         </button>
                     </div>

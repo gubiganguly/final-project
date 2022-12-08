@@ -5,7 +5,7 @@ import Experience from './experience/experience'
 import About from './about/about'
 import IntroCard from './intro-card/intro-card'
 import Education from './education'
-import Skills from './skills'
+import Skills from './skills/skills'
 import Awards from './awards'
 
 const ProfessionalInfo = () => {
@@ -24,8 +24,6 @@ const ProfessionalInfo = () => {
             <Education profile={profile} />
 
             <Skills profile={profile} />
-
-            <Awards profile={profile} />
         </div>
     )
 }

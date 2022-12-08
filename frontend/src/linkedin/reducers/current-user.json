@@ -1,6 +1,7 @@
 { "_id": 123, 
 "isCompany": false,
-"name": "Gubi Ganguly", 
+"firstName": "Gubi",
+"lastName": "Ganguly", 
 "position": "CEO of GubiLabs",
 "city": "Boston",
 "state": "Massachusetts",
@@ -64,6 +65,5 @@
     }
 ],
 
-"skills": ["Python", "React", "Node"],
-"awards": ["Rising Star Award"]
+"skills": ["Python", "React", "Node"]
 }

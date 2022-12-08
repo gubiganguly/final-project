@@ -13,7 +13,8 @@ const IntroCard = ({ profile }) => {
         setModal(true)
     }
 
-    const [name, setName] = useState(profile.name)
+    const [firstName, setFirstName] = useState(profile.firstName)
+    const [lastName, setLastName] = useState(profile.lastName)
     const [position, setPosition] = useState(profile.position)
     const [city, setCity] = useState(profile.city)
     const [state, setState] = useState(profile.state)
@@ -21,7 +22,8 @@ const IntroCard = ({ profile }) => {
     const dispatch = useDispatch()
 
     const onClose = (data) => {
-        setName(dispatch(updateProfile(data)).payload.name)
+        setFirstName(dispatch(updateProfile(data)).payload.firstName)
+        setLastName(dispatch(updateProfile(data)).payload.lastName)
         setPosition(dispatch(updateProfile(data)).payload.position)
         setCity(dispatch(updateProfile(data)).payload.city)
         setState(dispatch(updateProfile(data)).payload.state)
@@ -47,7 +49,7 @@ const IntroCard = ({ profile }) => {
 
                 </div>
                 <div className='row ms-5 mt-2' >
-                    <span className='fw-bolder float-start row' style={{ fontSize: "25px" }}>{name}</span>
+                    <span className='fw-bolder float-start row' style={{ fontSize: "25px" }}>{firstName} {lastName}</span>
                     <span className='fw-normal float-start row' style={{ fontSize: "17px" }}>{position}</span>
                     <span className='fw-light float-start row' style={{ fontSize: "13px" }}>{city}, {state}, {country}</span>
                     <span className='fw-bold text-primary float-start row' style={{ fontSize: "15px" }}>{profile.connectionCount} connections</span>

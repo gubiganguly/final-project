@@ -5,6 +5,9 @@ import Landing from './landing';
 import Navbar from './navbar';
 import Home from './home';
 import MyProfile from './my-profile';
+import CreateProfile from './create-profile/email-password';
+import AddExperience from './create-profile/add-experience';
+import Jobs from './jobs';
 import "./index.css"
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
@@ -30,6 +33,8 @@ const LinkedIn = () => {
           {!loggedIn &&
             <Routes>
               <Route path="/" element={<Landing />} />
+              <Route path="/create-profile" element={<CreateProfile />} />
+              <Route path="/create-profile/add-experience" element={<AddExperience />} />
             </Routes>
           }
           {loggedIn &&
@@ -40,7 +45,7 @@ const LinkedIn = () => {
                   <Route path="/home" element={<Home />} />
                   <Route path="/network" element={<h1>Network</h1>} />
                   <Route path="/my-profile" element={<MyProfile />} />
-                  <Route path="/messages" element={<h1>messages</h1>} />
+                  <Route path="/jobs" element={<Jobs />} />
                 </Routes>
               </div>
             </div>

@@ -4,7 +4,8 @@ import { useState } from 'react';
 
 const Modal = ({ open, onClose, profile }) => {
 
-    const [name, setName] = useState(profile.name)
+    const [firstName, setFirstName] = useState(profile.firstName)
+    const [lastName, setLastName] = useState(profile.LastName)
     const [position, setPosition] = useState(profile.position)
     const [city, setCity] = useState(profile.city)
     const [state, setState] = useState(profile.state)
@@ -13,7 +14,8 @@ const Modal = ({ open, onClose, profile }) => {
 
     const saveData = () => {
         const data = {
-            name: name,
+            firstName: firstName,
+            lastName: lastName,
             position: position,
             city: city,
             state: state,
@@ -26,9 +28,13 @@ const Modal = ({ open, onClose, profile }) => {
 
 
 
-    const nameChangeHandler = (event) => {
+    const firstnameChangeHandler = (event) => {
         const value = event.target.value;
-        setName(value);
+        setFirstName(value);
+    }
+    const lastnameChangeHandler = (event) => {
+        const value = event.target.value;
+        setLastName(value);
     }
     const positionChangeHandler = (event) => {
         const value = event.target.value;
@@ -63,10 +69,15 @@ const Modal = ({ open, onClose, profile }) => {
                 <hr className='text-secondary'></hr>
 
                 <div className='row'>
-                    <div className='col-12'>
-                        <label className=' float-start ms-3' style={{ fontSize: "15px" }}>Full name</label>
+                    <div className='col-6'>
+                        <label className=' float-start ms-3' style={{ fontSize: "15px" }}>First Name</label>
                         <br></br>
-                        <input className='float-start ms-3 rounded-2 border ' style={{width: "95%"}} defaultValue={profile.name} onChange={nameChangeHandler}></input>
+                        <input className='float-start ms-3 rounded-2 border ' style={{width: "95%"}} defaultValue={profile.firstName} onChange={firstnameChangeHandler}></input>
+                    </div>
+                    <div className='col-6'>
+                        <label className=' float-start ms-3' style={{ fontSize: "15px" }}>Last name</label>
+                        <br></br>
+                        <input className='float-start ms-3 rounded-2 border ' style={{width: "95%"}} defaultValue={profile.lastName} onChange={lastnameChangeHandler}></input>
                     </div>
                 </div>
                 <div className='row mt-3'>

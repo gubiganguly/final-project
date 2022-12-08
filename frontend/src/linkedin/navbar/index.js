@@ -39,8 +39,8 @@ const Navbar = () => {
             <span className='supporting-text'>Network</span>
           </li>
           <li className={`nav-item ${location === 'messages' ? 'active' : ''}`}>
-            <Link className="nav-link pb-0" to="/messages"><i className="fa-solid fa-message" style={{color:"#97A2A8", fontSize:"18px"}}></i></Link>
-            <span className='supporting-text'>Messaging</span>
+            <Link className="nav-link pb-0" to="/jobs"><i className="fa-solid fa-briefcase" style={{color:"#97A2A8", fontSize:"18px"}}></i></Link>
+            <span className='supporting-text'>Jobs</span>
           </li>
           <li className={`nav-item ${location === 'notifications' ? 'active' : ''}`}>
             <Link className="nav-link pb-0" to="/notifications"><i className="fa-solid fa-bell" style={{color:"#97A2A8", fontSize:"18px"}}></i></Link>
