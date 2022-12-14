@@ -1,56 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import Landing from './landing';
 import Navbar from './navbar';
+import SearchResults from './search-results';
 import Home from './home';
 import MyProfile from './my-profile';
+import PublicProfile from './public-profile';
 import CreateProfile from './create-profile/email-password';
 import AddExperience from './create-profile/add-experience';
 import Jobs from './jobs';
 import "./index.css"
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
+import { useSelector } from 'react-redux';
 import postReducer from './reducers/post-reducer';
-import profileReducer from './reducers/profile-reducer'
+import usersReducer from './reducers/users-reducer'
+import CurrentUser from './currentUser';
+import ProtectedRoute from './protected-route';
 
 const store = configureStore(
   {
-    reducer: { currentUser: profileReducer, post: postReducer }
+    reducer: { users: usersReducer, postData: postReducer }
   });
 
 const LinkedIn = () => {
 
-  const loggedIn = true;
+  const [loginInfo, setLoginInfo] = useState({})
 
   return (
     <>
-      {/* {loggedIn && <Landing/>}
-      {!loggedIn && <Landing/>} */}
       <Provider store={store}>
         <BrowserRouter>
-
-          {!loggedIn &&
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/create-profile" element={<CreateProfile />} />
-              <Route path="/create-profile/add-experience" element={<AddExperience />} />
-            </Routes>
-          }
-          {loggedIn &&
+          <CurrentUser>
             <div>
               <Navbar />
               <div className='container' >
                 <Routes>
+                  <Route path="/" element={<Landing />} />
+                  <Route path="/create-profile" element={<CreateProfile setLoginInfo={setLoginInfo}/>} />
+                  <Route path="/create-profile/add-experience" element={<AddExperience loginInfo={loginInfo}/>} />
+
                   <Route path="/home" element={<Home />} />
                   <Route path="/network" element={<h1>Network</h1>} />
                   <Route path="/my-profile" element={<MyProfile />} />
+                  <Route path="/profile/:uid" element={<PublicProfile />} />
                   <Route path="/jobs" element={<Jobs />} />
+                  <Route path="/search-results/:searchTerm" element={<SearchResults />} />
                 </Routes>
               </div>
             </div>
-
-          }
+          </CurrentUser>
         </BrowserRouter>
       </Provider>
     </>

@@ -3,11 +3,19 @@ import { useState } from 'react'
 import ExperienceModal from './experience-modal'
 import { Link } from 'react-router-dom'
 import SkillModal from './skill-modal'
+import { useDispatch } from 'react-redux'
+import { registerThunk } from '../../services/users-thunks'
 
-const AddExperience = () => {
+const AddExperience = ({loginInfo}) => {
 
   // Profile Card Stuff
-
+  const [position, setPosition] = useState('')
+  const [about, setAbout] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [country, setCountry] = useState('United States')
+ 
+ 
   // Experience Stuff
   const [experience, setExperience] = useState([])
   const [experienceModal, setExperienceModal] = useState(false)
@@ -40,6 +48,21 @@ const AddExperience = () => {
     setSkillModal(false)
   }
 
+  const dispatch = useDispatch()
+  const registerUser = () => {
+    let user = {
+      ...loginInfo,
+      position: position,
+      about: about,
+      city: city,
+      state: state,
+      country: country,
+      experience: experience,
+      skills: skills
+    }
+    dispatch(registerThunk(user))
+  }
+
   return (
     <div className='container'>
       <h2 className='mt-3'>Tell us about yourself</h2>
@@ -50,25 +73,37 @@ const AddExperience = () => {
           <div className='row mt-3'>
             <div className='col'>
               <span className='col-2 float-start ms-2 fw-bold' style={{ fontSize: "15px" }}>Position:</span>
-              <input className='border border-2 rounded-2 float-start mt-2 ms-4 ps-3' style={{ height: "60px", width: "90%" }} placeholder="CEO of LinkedIn" />
+              <input className='border border-2 rounded-2 float-start mt-2 ms-4 ps-3'
+                      style={{ height: "60px", width: "90%" }} 
+                      placeholder="CEO of LinkedIn"
+                      onChange={e => setPosition(e.target.value)} />
             </div>
           </div>
 
           <div className='row mt-3'>
             <div className='col'>
               <span className='col-2 float-start fw-bold' style={{ fontSize: "15px" }}>About:</span>
-              <textarea className='ms-3 mt-2 rounded-2 border ps-3' rows="6" cols="70" placeholder='You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.' />
+              <textarea className='ms-3 mt-2 rounded-2 border ps-3'
+                        rows="6" cols="70" 
+                        placeholder='You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences.'
+                        onChange={e => setAbout(e.target.value)} />
             </div>
           </div>
 
           <div className='row mt-3 mb-5'>
             <div className='col-4'>
               <span className='col-2 float-start ms-4  fw-bold' style={{ fontSize: "15px" }}>City:</span>
-              <input className='border border-2 rounded-2 float-start mt-2 ms-3 ps-3' style={{ height: "60px", width: "90%" }} placeholder="Boston" />
+              <input className='border border-2 rounded-2 float-start mt-2 ms-3 ps-3'
+                      style={{ height: "60px", width: "90%" }} 
+                      placeholder="Boston"
+                      onChange={e => setCity(e.target.value)} />
             </div>
             <div className='col-4'>
               <span className='col-2 float-start ms-4 fw-bold' style={{ fontSize: "15px" }}>State:</span>
-              <select className='border border-2 float-start rounded-2 mt-2 ms-3 ps-3' style={{ height: "60px", width: "90%" }} placeholder="MA">
+              <select className='border border-2 float-start rounded-2 mt-2 ms-3 ps-3'
+                      style={{ height: "60px", width: "90%" }}
+                      placeholder="MA"
+                      onChange={e => setState(e.target.value)}>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -124,7 +159,10 @@ const AddExperience = () => {
             </div>
             <div className='col-4'>
               <span className='col-2 float-start ms-4 fw-bold' style={{ fontSize: "15px" }}>Country:</span>
-              <select className='border border-2 float-start rounded-2 mt-2 ms-3 ps-3' style={{ height: "60px", width: "90%" }} placeholder="MA" >
+              <select className='border border-2 float-start rounded-2 mt-2 ms-3 ps-3' 
+                      style={{ height: "60px", width: "90%" }}
+                      placeholder="United States" 
+                      onChange={e => setCountry(e.target.value)}>
                 <option value="United States">United States</option>
               </select>
             </div>
@@ -198,7 +236,7 @@ const AddExperience = () => {
         </div>
       </div>
 
-      <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-5 mb-4' to='/home'>
+      <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-5 mb-4' to='/home' onClick={registerUser}>
         <span className='fw-bold text-light' style={{ fontSize: "25px" }}>Create Profile</span>
       </Link>
 

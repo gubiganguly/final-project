@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PostItem from './post-item'
-import {useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { findPostsThunk } from '../../../../services/posts-thunks.js';
 
 const PostList = () => {
-    const postArray = useSelector(state => state.post)
+    let {posts, loading} = useSelector(state => state.postData)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(findPostsThunk())
+    }, [])
+    posts = posts.slice(0).reverse()
 
     return (
         <ul className="list-group">
+            {   // Loading posts
+                loading &&
+                <li className="list-group-item">
+                    Loading...
+                </li>
+            }
+
             {
-                postArray.map(post =>
+                posts.map(post =>
                     <PostItem key={post._id} post={post} />)
             }
         </ul>

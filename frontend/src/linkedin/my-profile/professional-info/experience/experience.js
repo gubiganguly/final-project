@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from './modal'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { updateProfile } from '../../../reducers/profile-reducer';
+import { updateCurrentUserThunk } from '../../../../services/users-thunks';
 
 
 const Experience = ({ profile }) => {
@@ -22,12 +22,12 @@ const Experience = ({ profile }) => {
             update.push(experience[i])
         }
         update.push(data)
-        setExperience(dispatch(updateProfile({ experience: update })).payload.experience)
+        setExperience(dispatch(updateCurrentUserThunk({ experience: update })).arg.experience)
         setModal(false)
     }
 
 
-    return (
+    return ( 
         <>
             <div className='list-group-item rounded-2 shadow-sm mt-1'>
                 <button className='edit border-0 rounded-circle float-end p-2'>
@@ -38,7 +38,7 @@ const Experience = ({ profile }) => {
                     <div className='list-group'>
                         {
                             experience.map(exp =>
-                                <li key={exp._id} className='listgroup-item row ms-4 mt-2'>
+                                <li key={exp.detail} className='listgroup-item row ms-4 mt-2'>
                                     <div className='col-1 p-0'>
                                         <img className='rounded-2' width={50} src={exp.image} />
                                     </div>

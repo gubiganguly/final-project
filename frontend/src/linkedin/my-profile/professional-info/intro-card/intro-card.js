@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from './modal'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { updateProfile } from '../../../reducers/profile-reducer';
+import { updateCurrentUserThunk } from '../../../../services/users-thunks';
 
 const IntroCard = ({ profile }) => {
 
@@ -22,17 +22,17 @@ const IntroCard = ({ profile }) => {
     const dispatch = useDispatch()
 
     const onClose = (data) => {
-        setFirstName(dispatch(updateProfile(data)).payload.firstName)
-        setLastName(dispatch(updateProfile(data)).payload.lastName)
-        setPosition(dispatch(updateProfile(data)).payload.position)
-        setCity(dispatch(updateProfile(data)).payload.city)
-        setState(dispatch(updateProfile(data)).payload.state)
-        setCountry(dispatch(updateProfile(data)).payload.country)
+        setFirstName(dispatch(updateCurrentUserThunk(data)).arg.firstName)
+        setLastName(dispatch(updateCurrentUserThunk(data)).arg.lastName)
+        setPosition(dispatch(updateCurrentUserThunk(data)).arg.position)
+        setCity(dispatch(updateCurrentUserThunk(data)).arg.city)
+        setState(dispatch(updateCurrentUserThunk(data)).arg.state)
+        setCountry(dispatch(updateCurrentUserThunk(data)).arg.country)
         setModal(false)
     }
 
 
-
+ 
     return (
         <>
             <div className='list-group-item rounded-2 shadow-sm position-relative'>

@@ -15,7 +15,7 @@ const PostItem = ({ post }) => {
                     <img width={50} className="rounded-circle" src="/images/profile.jpeg" />
                 </div>
                 <span className='name fw-bolder col-3 position-absolute'>
-                    {post.name}
+                    {post.firstName} {post.lastName}
                     <br />
                     <span className='light-text text-secondary'>{post.position}</span>
                 </span>
@@ -25,7 +25,7 @@ const PostItem = ({ post }) => {
                 <span className='caption mt-2'>{post.caption}</span>
             </div>
             <img className={`rounded-3 mt-3 ${display}`} style={{ width: 300}} src={`/images/${post.image}`} />
-            <PostStats liked={post.liked} likes={post.likes} comments={post.comments} reposts={post.reposts} id={post._id}/>
+            <PostStats liked={post.liked} likes={post.likes} comments={post.comments} reposts={post.reposts} post={post}/>
 
         </li>
     )

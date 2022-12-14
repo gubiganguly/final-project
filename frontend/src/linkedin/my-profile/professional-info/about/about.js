@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Modal from './modal'
 import { useDispatch } from "react-redux";
-import { updateProfile } from '../../../reducers/profile-reducer';
+import { updateCurrentUserThunk } from '../../../../services/users-thunks';
 
 
 const About = ({ profile }) => {
@@ -19,7 +19,7 @@ const About = ({ profile }) => {
     const dispatch = useDispatch()
 
     const onClose = (data) => {
-        setAbout(dispatch(updateProfile(data)).payload.about)
+        setAbout(dispatch(updateCurrentUserThunk(data)).arg.about)
         setModal(false)
     }
 

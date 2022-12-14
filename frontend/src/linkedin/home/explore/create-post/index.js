@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import '@fortawesome/fontawesome-free/css/all.css';
 import { BiTask } from 'react-icons/bi';
 import "./index.css"
-import { createPost } from "../../../reducers/post-reducer";
+import {createPostThunk} from '../../../../services/posts-thunks.js'
 import {useDispatch} from "react-redux";
+import { useSelector } from "react-redux";
 
 const CreatePost = () => {
+
+    const {currentUser} = useSelector(state => state.users)
 
     let [startPost, setStartPost] = useState('');
     let [postImage, setPostImage] = useState('')
@@ -14,17 +17,20 @@ const CreatePost = () => {
     const dispatch = useDispatch()
     const postClickHandler = () => {
         const newPost = {
+            firstName: currentUser.firstName,
+            lastName: currentUser.lastName,
+            position: currentUser.position,
             caption: startPost,
-            image: postImage
+            // image: postImage
           }
-          dispatch(createPost(newPost));
+          dispatch(createPostThunk(newPost));
     }
 
     const imageClickHandler = () => {
         console.log("Upload image") 
     }
 
-
+ 
  
     return (
         <div className="row mt-5 mb-3 ms-5 me-5"> 

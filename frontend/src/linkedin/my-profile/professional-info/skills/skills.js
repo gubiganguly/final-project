@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { updateProfile } from '../../../reducers/profile-reducer';
+import { updateCurrentUserThunk } from '../../../../services/users-thunks';
 import Modal from './modal'
 
 
@@ -22,7 +22,7 @@ const Skills = ({ profile }) => {
             update.push(skills[i])
         }
         update.push(data)
-        setSkills(dispatch(updateProfile({ skills: update })).payload.skills) // Push to skill ARRAY!!
+        setSkills(dispatch(updateCurrentUserThunk({ skills: update })).arg.skills) // Push to skill ARRAY!!
         setModal(false)
         console.log(skills)
     }
