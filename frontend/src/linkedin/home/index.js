@@ -13,7 +13,7 @@ const Home = () => {
         <Explore />
       </div>
       <div className="col-2">
-        <Calander />
+
       </div>
   
     </div>

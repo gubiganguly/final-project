@@ -29,13 +29,21 @@ const ProfileStats = () => {
                     </div>
 
                     <div className='list-group-item'>
+                        <div className='row'>
+                        <span className='fw-bold text-secondary col'>Connections:</span>
+                        <span className='fw-bold text-success  col'>{currentUser.connectionCount}</span>
+                        </div>
+                        <div className='row'>
+                        <span className='fw-bold text-secondary col'>Posts:</span>
+                        <span className='fw-bold text-primary float-end col'>1,324</span>     
+                        </div>
+                        <div className='row'>
+                        <span className='fw-bold text-secondary float-start col'>Jobs:</span>
+                        <span className='fw-bold text-danger float-end col'>23</span>   
+                        </div>
 
-                        <span className='fw-bold text-secondary float-start'>Connections: </span>
-                        <span className='fw-bold text-success float-end'>{currentUser.connectionCount}</span>
-                        <span className='fw-bold text-secondary float-start'>Coins:</span>
-                        <span className='fw-bold text-primary float-end'>1,324</span>
-                        <span className='fw-bold text-secondary float-start'>Experience: </span>
-                        <span className='fw-bold text-danger float-end'>King</span>
+
+
                     </div>
                 </div>
             }

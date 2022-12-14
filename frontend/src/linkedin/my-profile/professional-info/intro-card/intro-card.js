@@ -3,6 +3,7 @@ import Modal from './modal'
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { updateCurrentUserThunk } from '../../../../services/users-thunks';
+import { Link } from 'react-router-dom';
 
 const IntroCard = ({ profile }) => {
 
@@ -38,7 +39,7 @@ const IntroCard = ({ profile }) => {
             <div className='list-group-item rounded-2 shadow-sm position-relative'>
                 <div className='row'>
                     <div className='col'>
-                        <img className='profilePic rounded-circle float-start border border-4 ms-5' width={125} src={profile.image} alt='' />
+                        <img className='profilePic rounded-circle ms-4 border border-4 ' width={125} src={profile.image} alt='' />
                         <button className='edit border-0 rounded-circle float-end p-2' onClick={editHandler}>
                             <i className="fa-solid fa-pen"></i>
                         </button>
@@ -48,11 +49,15 @@ const IntroCard = ({ profile }) => {
                 <div className='row'>
 
                 </div>
-                <div className='row ms-5 mt-2' >
-                    <span className='fw-bolder float-start row' style={{ fontSize: "25px" }}>{firstName} {lastName}</span>
-                    <span className='fw-normal float-start row' style={{ fontSize: "17px" }}>{position}</span>
-                    <span className='fw-light float-start row' style={{ fontSize: "13px" }}>{city}, {state}, {country}</span>
-                    <span className='fw-bold text-primary float-start row' style={{ fontSize: "15px" }}>{profile.connectionCount} connections</span>
+                <div className='row mt-2' >
+                    <span className='fw-bolder' style={{ fontSize: "25px" }}>{firstName} {lastName}</span>
+                    <span className='fw-normal' style={{ fontSize: "17px" }}>{position}</span>
+                    <span className='fw-light ' style={{ fontSize: "13px" }}>{city}, {state}, {country}</span>
+                    <div className='row'>
+                        <Link className='fw-bold text-primary text-decoration-none col' style={{ fontSize: "15px" }} to='/network'>Connections: {profile.connectionCount}</Link>
+                        <Link className='fw-bold text-success text-decoration-none col' style={{ fontSize: "15px" }} to='/network'>Posts: {profile.connectionCount}</Link>
+                        <Link className='fw-bold text-danger text-decoration-none col' style={{ fontSize: "15px" }} to='/jobs'>Jobs: {profile.connectionCount}</Link>
+                    </div>
                 </div>
             </div>
             <Modal open={modal} onClose={onClose} profile={profile}/>
@@ -60,4 +65,4 @@ const IntroCard = ({ profile }) => {
     )
 }
 
-export default IntroCard
+export default IntroCard 

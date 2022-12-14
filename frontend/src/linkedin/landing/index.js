@@ -45,7 +45,7 @@ const Landing = () => {
                     <Link className='btn bg-primary rounded-3 border-0 pt-2 pb-2 ms-4 me-3 mt-3' to='/home' onClick={login}>
                         <span className='fw-bold text-light' style={{ fontSize: "25px" }}>Log in</span>
                     </Link>
-                    <Link className='text-decoration-none mt-1'>Forgot password?</Link>
+                    <Link className='text-decoration-none mt-1' to='/home'>Continue as guest</Link>
                     <hr></hr>
                     <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-3 mb-4' to='/create-profile'>
                         <span className='fw-bold text-light' style={{ fontSize: "25px" }}>Create New Account</span>

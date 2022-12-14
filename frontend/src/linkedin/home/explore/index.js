@@ -1,13 +1,25 @@
 import React from 'react'
 import PostList from './post-list'
 import CreatePost from "./create-post"
+import { useSelector } from 'react-redux'
+
 const Explore = () => {
+  const { currentUser } = useSelector(state => state.users)
 
   return (
-    <div className='Explore'>
-        <CreatePost />
-        <PostList/>
-    </div>
+    <>
+      {currentUser &&
+        <div className='Explore'>
+          <CreatePost />
+          <PostList />
+        </div>
+      }
+      {!currentUser &&
+        < div className='Explore mt-3'>
+          <PostList />
+        </div>
+      }
+    </>
   )
 }
 

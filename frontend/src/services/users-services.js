@@ -8,6 +8,11 @@ export const findAllUsers = async () => {
     return response.data
 }
 
+export const findUserById = async (uid) => {
+    const response = await axios.get(`${USERS_API}/${uid}`)
+    return response.data
+}
+
 export const register = async (user) => {
     const response = await axios.post(`${BASE_API_URL}/register`, user)
     return response.data

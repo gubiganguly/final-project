@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerThunk, findAllUsersThunk, updateCurrentUserThunk, profileThunk, logoutThunk, loginThunk, findUsersByNameThunk } from "../../services/users-thunks";
-import currentUser from './current-user.json'
+import { registerThunk, findAllUsersThunk, updateCurrentUserThunk, profileThunk, logoutThunk, loginThunk, findUsersByNameThunk, findUserByIdThunk } from "../../services/users-thunks";
 
 const initialState = {
     users: [],
@@ -55,6 +54,15 @@ const userSlice = createSlice({
         [findUsersByNameThunk.fulfilled]: (state, action) => {
             state.users = action.payload
             state.loading = false
+        },
+        // get user by id
+        [findUserByIdThunk.fulfilled]: (state, action) => {
+            state.publicProfile = action.payload
+            state.loading = false
+        },
+        [findUserByIdThunk.pending]: (state, action) => {
+            state.publicProfile = null
+            state.loading = true
         },
 
     }

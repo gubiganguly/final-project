@@ -5,8 +5,6 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { findUsersByNameThunk } from '../../services/users-thunks';
 
 import '@fortawesome/fontawesome-free/css/all.css';
 
@@ -16,26 +14,17 @@ const Navbar = () => {
 
   const { currentUser } = useSelector(state => state.users)
 
-  let loggedin = false
-  if (currentUser) {
-    loggedin = true
-  }
-  else {
-    loggedin = false
-  }
-
   const [searchTerm, setSearchTerm] = useState()
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   const enterHandler = (e) => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       navigate(`/search-results/${searchTerm}`)
     }
   }
 
   return (
     <>
-      {loggedin &&
+      {currentUser &&
         <div className='navbar row pb-0 pt-0'>
 
           <Link className='col-2 col-md-2 d-md-block d-sm-none logoLink' to="/home">
@@ -47,8 +36,8 @@ const Navbar = () => {
             <input placeholder="Search"
               className="form-control rounded-3 ps-5 border-light"
               style={{ backgroundColor: "#DCEBF5" }}
-              onChange={e => setSearchTerm(e.target.value)} 
-              onKeyDown={enterHandler}/>
+              onChange={e => setSearchTerm(e.target.value)}
+              onKeyDown={enterHandler} />
             <i className="fa-solid fa-magnifying-glass position-absolute wd-nudge-up text-secondary"></i>
 
           </div>
@@ -81,6 +70,30 @@ const Navbar = () => {
           </div>
         </div>
       }
+
+      {!currentUser &&
+        <div className='navbar row pb-0 pt-0'>
+          <Link className='col-4  logoLink' to="/home">
+            <img className='logo' alt='' src='/images/logo.png' width={50} />
+          </Link>
+          <div className="col-4 searchbar position-relative">
+            <input placeholder="Search users or jobs"
+              className="form-control rounded-3 ps-5 border-light"
+              style={{ backgroundColor: "#DCEBF5" }}
+              onChange={e => setSearchTerm(e.target.value)}
+              onKeyDown={enterHandler} />
+            <i className="fa-solid fa-magnifying-glass position-absolute wd-nudge-up text-secondary"></i>
+
+          </div>
+          <div className="col-4 links">
+            <Link className='rounded-2 btn btn-primary ps-3 pe-3 fw-bold border-0' to='/'>
+              Log In
+            </Link>
+          </div>
+        </div>
+
+      }
+
     </>
   )
 }

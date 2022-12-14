@@ -16,12 +16,15 @@ import { Provider } from "react-redux";
 import { useSelector } from 'react-redux';
 import postReducer from './reducers/post-reducer';
 import usersReducer from './reducers/users-reducer'
+import jobsReducer from './reducers/jobs-reducer';
 import CurrentUser from './currentUser';
 import ProtectedRoute from './protected-route';
 
 const store = configureStore(
   {
-    reducer: { users: usersReducer, postData: postReducer }
+    reducer: {  users: usersReducer,
+                postData: postReducer,
+                jobs: jobsReducer}
   });
 
 const LinkedIn = () => {
