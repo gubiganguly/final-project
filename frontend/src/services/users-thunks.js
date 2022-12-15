@@ -22,8 +22,8 @@ export const registerThunk = createAsyncThunk(
 
 export const loginThunk = createAsyncThunk(
     'login',
-    async (user) => 
-        await service.login(user)
+    async (cred) => 
+        await service.login(cred)
 )
 
 export const logoutThunk = createAsyncThunk(

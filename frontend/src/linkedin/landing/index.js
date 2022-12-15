@@ -12,11 +12,11 @@ const Landing = () => {
 
     const dispatch = useDispatch()
     const login = () => {
-        let user = {
+        let cred = {
             email: email,
             password: password
         }
-        dispatch(loginThunk(user))
+        dispatch(loginThunk(cred))
     }
 
 

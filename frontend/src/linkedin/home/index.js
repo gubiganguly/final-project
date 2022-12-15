@@ -1,13 +1,16 @@
 import React from 'react'
 import Explore from './explore'
 import ProfileStats from './profile-stats'
-import Calander from './calander'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+  const { currentUser } = useSelector(state => state.users)
   return (
     <div className='row'>
       <div className="col-2">
-        <ProfileStats />
+        {currentUser &&
+          <ProfileStats user={currentUser}/>
+        }
       </div>
       <div className="col-8">
         <Explore />

@@ -25,10 +25,16 @@ const MyPosts = () => {
             {publicProfile &&
                 <div className='row'>
                     { params.author === currentUser._id &&
-                        <h1>My Posts</h1>
+                        <div>
+                            <h1 style={{color:"#97A2A8"}}>My Posts</h1>
+                            <hr></hr>
+                        </div>
+                        
                     } 
                     { params.author != currentUser._id &&
-                        <h1>{publicProfile.firstName} {publicProfile.lastName}'s Posts</h1> 
+                        <div>
+                            <h1 style={{color:"#97A2A8"}}>{publicProfile.firstName} {publicProfile.lastName}'s Posts</h1> 
+                        </div>
                     }         
                     <div className='col-2' />
                     <ul className="list-group col">

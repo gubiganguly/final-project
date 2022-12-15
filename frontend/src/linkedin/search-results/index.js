@@ -20,7 +20,7 @@ const SearchResults = () => {
             <div className='row'>
                 <div className='col' />
                 <div className='col'>
-                    <ul className="nav nav-pills mb-2 mt-2">
+                    <ul className="nav nav-pills mb-2 mt-2 justify-content-center">
                         <li className="nav-item">
                             <a className="nav-link fw-bold active" href={`/search-results/${params.searchTerm}`}>People</a>
                         </li>
@@ -31,6 +31,7 @@ const SearchResults = () => {
                 </div>
                 <div className='col'/>
             </div>
+            <hr></hr>
             <div className='row'>
                 <div className='col-3'/>
                 <div className='col'>

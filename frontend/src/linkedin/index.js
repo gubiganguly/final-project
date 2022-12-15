@@ -5,6 +5,7 @@ import Landing from './landing';
 import Navbar from './navbar';
 import SearchResults from './search-results';
 import Home from './home';
+
 import MyProfile from './my-profile';
 import PublicProfile from './public-profile';
 import CreateProfile from './create-profile/email-password';
@@ -20,13 +21,17 @@ import usersReducer from './reducers/users-reducer'
 import jobsReducer from './reducers/jobs-reducer';
 import CurrentUser from './currentUser';
 import MyPosts from './my-posts';
+import followsReducer from './reducers/follows-reducer'
 import ProtectedRoute from './protected-route';
+import Followers from './network/followers';
+import Following from './network/following';
 
 const store = configureStore(
   {
     reducer: {  users: usersReducer,
                 postData: postReducer,
-                jobs: jobsReducer}
+                jobs: jobsReducer,
+                follows: followsReducer}
   });
 
 const LinkedIn = () => {
@@ -47,13 +52,14 @@ const LinkedIn = () => {
                   <Route path="/create-profile/add-experience" element={<AddExperience loginInfo={loginInfo}/>} />
 
                   <Route path="/home" element={<Home />} />
-                  <Route path="/network" element={<h1>Network</h1>} />
                   <Route path="/profile" element={<MyProfile />} />
                   <Route path="/profile/:uid" element={<PublicProfile />} />
                   <Route path="/jobs" element={<Jobs />} />
                   <Route path="/search-results/:searchTerm/jobs" element={<JobsPage />} />
                   <Route path="/search-results/:searchTerm" element={<SearchResults />} />
                   <Route path="/posts/:author" element={<MyPosts />} />
+                  <Route path="/network/:uid/following" element={<Following />} />
+                  <Route path="/network/:uid/followers" element={<Followers />} />
                 </Routes>
               </div>
             </div>

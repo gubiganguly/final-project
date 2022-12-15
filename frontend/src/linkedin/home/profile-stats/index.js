@@ -1,39 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import {findFollowersThunk} from '../../../services/follows-thunk'
 import './index.css'
 
-const ProfileStats = () => {
+const ProfileStats = ({user}) => {
 
-    const { currentUser } = useSelector(state => state.users)
+    const {followers} = useSelector(state => state.follows)
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(findFollowersThunk(user._id))
+    }, [])
+
 
     return (
         <>
-            {currentUser &&
+            {user &&
                 <div className='list-group mt-5 shadow-sm'>
                     <div className="list-group-item">
                         <Link to="/my-profile">
-                            <img className="rounded-circle mb-2" src="/images/profile.jpeg" width={50} />
+                            <img className="rounded-circle mb-2" src={user.image} width={50} />
                         </Link>
                         <br></br>
-                        <span className='fw-bolder'>{currentUser.firstName} {currentUser.lastName}</span>
+                        <span className='fw-bolder'>{user.firstName} {user.lastName}</span>
                         <br></br>
-                        <span className='light-text text-secondary'>{currentUser.position}</span>
+                        <span className='light-text text-secondary'>{user.position}</span>
                     </div>
 
                     <div className='list-group-item caption'>
                         <div className='row'>
                         <span className='fw-bold text-secondary col'>Connections:</span>
-                        <span className='fw-bold text-primary col text-right'>{currentUser.connectionCount}</span>
+                        {followers &&
+                            <span className='fw-bold text-primary col text-right'>{followers.length}</span>
+                        }
                         </div>
                         <div className='row'>
                         <span className='fw-bold text-secondary col'>Posts:</span>
-                        <span className='fw-bold text-success  col text-right'>{currentUser.postCount}</span>     
+                        <span className='fw-bold text-success  col text-right'>{user.postCount}</span>     
                         </div>
                         <div className='row'>
                         <span className='fw-bold text-secondary float-start col'>Jobs:</span>
-                        <span className='fw-bold text-danger col text-right'>23</span>   
+                        <span className='fw-bold text-danger col text-right'>1</span>   
                         </div>
 
 

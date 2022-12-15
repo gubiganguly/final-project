@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { updateCurrentUserThunk } from '../../../../services/users-thunks';
 import { Link } from 'react-router-dom';
-
+import { findFollowersThunk } from '../../../../services/follows-thunk';
+import { useSelector } from 'react-redux';
 
 
 const IntroCard = ({ profile }) => {
@@ -23,9 +24,13 @@ const IntroCard = ({ profile }) => {
     const [city, setCity] = useState(profile.city)
     const [state, setState] = useState(profile.state)
     const [country, setCountry] = useState(profile.country)
-    //const dispatch = useDispatch()
 
+    const { followers } = useSelector((state) => state.follows)
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(findFollowersThunk(profile._id))
+    }, [])
+
     const onClose = (data) => {
         setFirstName(dispatch(updateCurrentUserThunk(data)).arg.firstName)
         setLastName(dispatch(updateCurrentUserThunk(data)).arg.lastName)
@@ -58,7 +63,9 @@ const IntroCard = ({ profile }) => {
                     <span className='fw-normal' style={{ fontSize: "17px" }}>{position}</span>
                     <span className='fw-light ' style={{ fontSize: "13px" }}>{city}, {state}, {country}</span>
                     <div className='row'>
-                        <Link className='fw-bold text-primary text-decoration-none col' style={{ fontSize: "15px" }} to='/network'>Connections: {profile.connectionCount}</Link>
+                        {followers &&
+                            <Link className='fw-bold text-primary text-decoration-none col' style={{ fontSize: "15px" }} to={`/network/${profile._id}/followers`}>Connections: {followers.length}</Link>
+                        }
     
                         <Link className='fw-bold text-success text-decoration-none col' style={{ fontSize: "15px" }} to={`/posts/${profile._id}`}>Posts: {profile.postCount}</Link>
                     

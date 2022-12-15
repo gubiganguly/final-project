@@ -49,7 +49,7 @@ const Navbar = () => {
                 <span className='supporting-text'>Home</span>
               </li>
               <li className={`nav-item ${location === 'network' ? 'active' : ''}`}>
-                <Link className="nav-link pb-0" to="/network"><i className="fa-solid fa-people-group" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
+                <Link className="nav-link pb-0" to={`/network/${currentUser._id}/following`}><i className="fa-solid fa-people-group" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                 <span className='supporting-text'>Network</span>
               </li>
               <li className={`nav-item ${location === 'messages' ? 'active' : ''}`}>
