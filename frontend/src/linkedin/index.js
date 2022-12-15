@@ -10,6 +10,7 @@ import PublicProfile from './public-profile';
 import CreateProfile from './create-profile/email-password';
 import AddExperience from './create-profile/add-experience';
 import Jobs from './jobs';
+import JobsPage from './search-results/jobs-page';
 import "./index.css"
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from "react-redux";
@@ -18,6 +19,7 @@ import postReducer from './reducers/post-reducer';
 import usersReducer from './reducers/users-reducer'
 import jobsReducer from './reducers/jobs-reducer';
 import CurrentUser from './currentUser';
+import MyPosts from './my-posts';
 import ProtectedRoute from './protected-route';
 
 const store = configureStore(
@@ -46,10 +48,12 @@ const LinkedIn = () => {
 
                   <Route path="/home" element={<Home />} />
                   <Route path="/network" element={<h1>Network</h1>} />
-                  <Route path="/my-profile" element={<MyProfile />} />
+                  <Route path="/profile" element={<MyProfile />} />
                   <Route path="/profile/:uid" element={<PublicProfile />} />
                   <Route path="/jobs" element={<Jobs />} />
+                  <Route path="/search-results/:searchTerm/jobs" element={<JobsPage />} />
                   <Route path="/search-results/:searchTerm" element={<SearchResults />} />
+                  <Route path="/posts/:author" element={<MyPosts />} />
                 </Routes>
               </div>
             </div>
@@ -60,4 +64,4 @@ const LinkedIn = () => {
   )
 }
 
-export default LinkedIn
+export default LinkedIn 

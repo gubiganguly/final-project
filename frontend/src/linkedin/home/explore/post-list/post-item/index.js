@@ -1,6 +1,7 @@
 import React from 'react'
 import "./index.css"
 import PostStats from "../post-stats"
+import { Link } from 'react-router-dom'
 
 const PostItem = ({ post }) => { 
     
@@ -11,9 +12,9 @@ const PostItem = ({ post }) => {
     return (
         <li className="list-group-item rounded-3 mb-3 shadow-sm">
             <div className="row position-relative">
-                <div className='col-1'>
+                <Link className='col-1' to={`/profile/${post.author}`}>
                     <img width={50} className="rounded-circle" src="/images/profile.jpeg" />
-                </div>
+                </Link>
                 <span className='name fw-bolder col-3 position-absolute'>
                     {post.firstName} {post.lastName}
                     <br />

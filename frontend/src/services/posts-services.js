@@ -27,4 +27,10 @@ export const updatePost = async (post) => {
     return post;
 }
 
+// Find post by author
+export const findPostByAuthor = async (aid) => {
+    const response = await axios.get(`${POSTS_API}/${aid}`, aid);
+    return response.data;
+}
+
  

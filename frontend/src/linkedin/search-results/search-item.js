@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const SearchItem = ({ user }) => {
 
     return (
-        <li className="list-group-item rounded-3 shadow-sm">
+        <li className="list-group-item rounded-3 shadow-sm mb-2">
             <div className='row position-relative'>
                 <div className='col-2'>
                     <img width={50} className="rounded-circle" src="/images/profile.jpeg" />

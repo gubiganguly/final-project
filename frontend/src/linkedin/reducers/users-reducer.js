@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerThunk, findAllUsersThunk, updateCurrentUserThunk, profileThunk, logoutThunk, loginThunk, findUsersByNameThunk, findUserByIdThunk } from "../../services/users-thunks";
+import { registerThunk, findAllUsersThunk, updateCurrentUserThunk, profileThunk, logoutThunk, loginThunk, findUsersByNameThunk, findUserByIdThunk, updateUserThunk } from "../../services/users-thunks";
 
 const initialState = {
     users: [],
@@ -64,7 +64,11 @@ const userSlice = createSlice({
             state.publicProfile = null
             state.loading = true
         },
-
+        // update user
+        [updateUserThunk.fulfilled]: (state, action) => {
+            state.publicProfile = action.payload
+            state.loading = false
+        },
     }
 });
 

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { findPostsThunk, deletePostsThunk, createPostThunk, updatePostThunk } from "../../services/posts-thunks";
+import { findPostsThunk, deletePostsThunk, createPostThunk, updatePostThunk, findPostByAuthorThunk } from "../../services/posts-thunks";
 
 const initialState = {
   posts: [],
   loading: false
 }
- 
+
 const currentUser = {
   "name": "Gubi Ganguly",
   "position": "CEO of GubiLabs",
@@ -61,9 +61,12 @@ const postSlice = createSlice({
           ...state.posts[postIndex],
           ...action.payload
         }
-      }
-
-
+      },
+    // Find posts by authors
+    [findPostByAuthorThunk.fulfilled]: (state, action) => {  
+      state.posts = action.payload
+      state.loading = false
+    }
   }
 });
 

@@ -1,22 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import './index.css'
 
 const ProfileStats = () => {
 
     const { currentUser } = useSelector(state => state.users)
 
-    let loggedin = false
-    if (currentUser) {
-        loggedin = true
-    }
-    else {
-        loggedin = false
-    }
-
     return (
         <>
-            {loggedin &&
+            {currentUser &&
                 <div className='list-group mt-5 shadow-sm'>
                     <div className="list-group-item">
                         <Link to="/my-profile">
@@ -28,18 +22,18 @@ const ProfileStats = () => {
                         <span className='light-text text-secondary'>{currentUser.position}</span>
                     </div>
 
-                    <div className='list-group-item'>
+                    <div className='list-group-item caption'>
                         <div className='row'>
                         <span className='fw-bold text-secondary col'>Connections:</span>
-                        <span className='fw-bold text-success  col'>{currentUser.connectionCount}</span>
+                        <span className='fw-bold text-primary col text-right'>{currentUser.connectionCount}</span>
                         </div>
                         <div className='row'>
                         <span className='fw-bold text-secondary col'>Posts:</span>
-                        <span className='fw-bold text-primary float-end col'>1,324</span>     
+                        <span className='fw-bold text-success  col text-right'>{currentUser.postCount}</span>     
                         </div>
                         <div className='row'>
                         <span className='fw-bold text-secondary float-start col'>Jobs:</span>
-                        <span className='fw-bold text-danger float-end col'>23</span>   
+                        <span className='fw-bold text-danger col text-right'>23</span>   
                         </div>
 
 

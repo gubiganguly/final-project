@@ -61,7 +61,7 @@ const Navbar = () => {
                 <span className='supporting-text'>Notifications</span>
               </li>
               <li className={`nav-item`}>
-                <Link className="nav-link pb-0" to="/my-profile">
+                <Link className="nav-link pb-0" to="/profile">
                   <img src={currentUser.image} alt='' className='profile-image' />
                 </Link>
                 <span className='supporting-text'>Me</span>

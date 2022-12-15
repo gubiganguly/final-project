@@ -6,6 +6,7 @@ import "./index.css"
 import {createPostThunk} from '../../../../services/posts-thunks.js'
 import {useDispatch} from "react-redux";
 import { useSelector } from "react-redux";
+import {updateCurrentUserThunk} from '../../../../services/users-thunks'
 
 const CreatePost = () => {
 
@@ -20,10 +21,12 @@ const CreatePost = () => {
             firstName: currentUser.firstName,
             lastName: currentUser.lastName,
             position: currentUser.position,
+            author: currentUser,
             caption: startPost,
             // image: postImage
           }
           dispatch(createPostThunk(newPost));
+          dispatch(updateCurrentUserThunk({postCount: currentUser.postCount + 1}))
     }
 
     const imageClickHandler = () => {

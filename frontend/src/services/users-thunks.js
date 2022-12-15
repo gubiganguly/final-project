@@ -50,5 +50,11 @@ export const findUsersByNameThunk = createAsyncThunk(
         await service.findUsersByName(name)
 )
 
+export const updateUserThunk = createAsyncThunk(
+    'updateUser',
+    async (uid, update) => 
+        await service.updateUser(uid, update)
+)
+
 
  

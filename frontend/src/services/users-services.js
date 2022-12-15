@@ -43,4 +43,9 @@ export const findUsersByName = async (name) => {
     return response.data
 }
 
+export const updateUser = async (uid, update) => {
+    const response = await axios.put(`${USERS_API}/${uid}`, update)
+    return response.data
+} 
+ 
   
