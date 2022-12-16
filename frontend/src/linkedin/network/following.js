@@ -52,6 +52,7 @@ const Following = () => {
             <hr></hr>
 
             <div className='container-fluid mt-4' style={{ display: "flex" }}>
+
                 {following &&
                     following.map((follow) =>
                         <FollowCard user={follow.followed} />
@@ -65,10 +66,3 @@ const Following = () => {
 
 export default Following
 
-{/* <div className="display-flex">
-{following &&
-    following.map((follow) =>
-        <FollowCard user={follow.followed} />
-    )
-}
-</div> */}

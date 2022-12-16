@@ -49,6 +49,7 @@ const Followers = () => {
             </div>
             <hr></hr>
             <div className='container-fluid mt-4' style={{ display: "flex" }}>
+
                 {followers &&
                     followers.map((follow) =>
                         <FollowCard user={follow.follower} />

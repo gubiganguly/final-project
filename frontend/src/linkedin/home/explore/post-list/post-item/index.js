@@ -18,7 +18,7 @@ const PostItem = ({ post }) => {
                 <span className='name fw-bolder col-3 position-absolute'>
                     {post.firstName} {post.lastName}
                     <br />
-                    <span className='light-text text-secondary'>{post.position}</span>
+                    <span className='light-text text-secondary d-none d-sm-none d-md-block'>{post.position}</span>
                 </span>
             </div>
 

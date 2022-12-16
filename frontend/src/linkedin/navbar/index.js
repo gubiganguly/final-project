@@ -27,12 +27,11 @@ const Navbar = () => {
       {currentUser &&
         <div className='navbar row pb-0 pt-0'>
 
-          <Link className='col-2 col-md-2 d-md-block d-sm-none logoLink' to="/home">
+          <Link className='col-2 logoLink' to="/home">
             <img className='logo' alt='' src='/images/logo.png' width={50} />
           </Link>
 
-
-          <div className="col-4 col-lg-4 col-md-3 col-sm-4 searchbar position-relative">
+          <div className="col-4 searchbar position-relative">
             <input placeholder="Search"
               className="form-control rounded-3 ps-5 border-light"
               style={{ backgroundColor: "#DCEBF5" }}
@@ -41,10 +40,11 @@ const Navbar = () => {
             <i className="fa-solid fa-magnifying-glass position-absolute wd-nudge-up text-secondary"></i>
 
           </div>
-          <div className="col-6 col-lg-6 col-md-7 col-sm-8 links">
+
+          <div className="col-6  links">
             <ul className="nav float-end me-5">
 
-              <li className={`nav-item ${location === '' ? 'active' : ''}`}>
+              <li className={`nav-item d-none d-sm-none d-md-block ${location === '' ? 'active' : ''}`}>
                 <Link className="nav-link pb-0" to="/home"><i className="fa-solid fa-house-chimney" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                 <span className='supporting-text'>Home</span>
               </li>
@@ -52,16 +52,16 @@ const Navbar = () => {
                 <Link className="nav-link pb-0" to={`/network/${currentUser._id}/following`}><i className="fa-solid fa-handshake" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                 <span className='supporting-text'>Network</span>
               </li>
-              <li className={`nav-item ${location === 'messages' ? 'active' : ''}`}>
+              <li className={`nav-item d-none d-sm-none d-md-block ${location === 'messages' ? 'active' : ''}`}>
                 <Link className="nav-link pb-0" to="/jobs"><i className="fa-solid fa-briefcase" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                 <span className='supporting-text'>Jobs</span>
               </li>
-              <li className={`nav-item ${location === 'notifications' ? 'active' : ''}`}>
+              <li className={`nav-item d-none d-sm-none d-md-none d-lg-block ${location === 'notifications' ? 'active' : ''}`}>
                 <Link className="nav-link pb-0" to="/notifications"><i className="fa-solid fa-bell" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                 <span className='supporting-text'>Notifications</span>
               </li>
               {currentUser.role === 'ADMIN' &&
-                <li className={`nav-item ${location === 'all-users' ? 'active' : ''}`}>
+                <li className={`nav-item d-none d-sm-none d-xl-block ${location === 'all-users' ? 'active' : ''}`}>
                   <Link className="nav-link pb-0" to={`/all-users`}><i className="fa-solid fa-people-group" style={{ color: "#97A2A8", fontSize: "18px" }}></i></Link>
                   <span className='supporting-text'>Users</span>
                 </li>

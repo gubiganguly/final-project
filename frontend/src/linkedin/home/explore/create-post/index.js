@@ -37,7 +37,7 @@ const CreatePost = () => {
  
     return (
         <div className="row mt-5 mb-3 ms-5 me-5"> 
-            <div className="col-auto">
+            <div className="col-auto d-none d-sm-none d-md-block">
                 <img className="rounded-circle" src={currentUser.image} width={60} />
             </div>
             <div className="col-10">
@@ -51,13 +51,13 @@ const CreatePost = () => {
                         Post
                     </button>
                     <div className="row text-primary fs-2">
-                        <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add image">
+                        <button className="post-item col border-0 rounded-1 d-none d-sm-block" data-toggle="tooltip" data-placement="top" title="Add image">
                             <i className="fa-regular fa-image" style={{color: "#94D1F7"}}></i>
                         </button>
                         <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add task">
                             <BiTask color="#AB6767"/>
                         </button>
-                        <button className="post-item col border-0 rounded-1" data-toggle="tooltip" data-placement="top" title="Add event">
+                        <button className="post-item col border-0 rounded-1 d-none d-sm-block" data-toggle="tooltip" data-placement="top" title="Add event">
                             <i className="fa-regular fa-calendar-days" style={{color: "#F7ADAD"}}></i>
                         </button>
                     </div>

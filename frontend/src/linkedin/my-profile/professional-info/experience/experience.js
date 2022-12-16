@@ -39,12 +39,12 @@ const Experience = ({ profile }) => {
                         {
                             experience.map(exp =>
                                 <li key={exp.detail} className='listgroup-item row ms-4 mt-2'>
-                                    <div className='col-1 p-0'>
+                                    <div className='col-1 p-0 d-none d-sm-none d-md-block'>
                                         <img className='rounded-2' width={50} src={exp.image} />
                                     </div>
 
                                     <div className='col ms-2'>
-                                        <span className='text-secondary row float-end' style={{ fontSize: "13px" }}>{exp.startDate} - {exp.endDate}</span>
+                                        <span className='text-secondary row float-end d-none d-sm-none d-md-block' style={{ fontSize: "13px" }}>{exp.startDate} - {exp.endDate}</span>
                                         <span className='fw-bolder col row' style={{ fontSize: "20px" }}>{exp.workplace}</span>                            
                                         <span className='text-secondary row ms-1' style={{ fontSize: "13px" }}>{exp.title}</span>
                                         <p className=' row ms-1' style={{ fontSize: "15px", textAlign: "left" }}>{exp.detail}</p>
