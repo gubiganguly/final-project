@@ -64,12 +64,12 @@ const IntroCard = ({ profile }) => {
                     <span className='fw-light ' style={{ fontSize: "13px" }}>{city}, {state}, {country}</span>
                     <div className='row'>
                         {followers &&
-                            <Link className='fw-bold text-primary text-decoration-none col' style={{ fontSize: "15px" }} to={`/network/${profile._id}/followers`}>Connections: {followers.length}</Link>
+                            <Link className='fw-bold text-primary text-decoration-none col' style={{ fontSize: "15px" }} to={`/network/${profile._id}/followers`}>Followers: {followers.length}</Link>
                         }
     
                         <Link className='fw-bold text-success text-decoration-none col' style={{ fontSize: "15px" }} to={`/posts/${profile._id}`}>Posts: {profile.postCount}</Link>
                     
-                        <Link className='fw-bold text-danger text-decoration-none col' style={{ fontSize: "15px" }} to='/jobs'>Jobs: {profile.connectionCount}</Link>
+                        <Link className='fw-bold text-danger text-decoration-none col' style={{ fontSize: "15px" }} to='/jobs'>Jobs: {0}</Link>
                     </div>
                 </div>
             </div>

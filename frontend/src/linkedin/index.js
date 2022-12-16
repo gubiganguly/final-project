@@ -25,6 +25,7 @@ import followsReducer from './reducers/follows-reducer'
 import ProtectedRoute from './protected-route';
 import Followers from './network/followers';
 import Following from './network/following';
+import AllUsers from './all-users';
 
 const store = configureStore(
   {
@@ -60,6 +61,7 @@ const LinkedIn = () => {
                   <Route path="/posts/:author" element={<MyPosts />} />
                   <Route path="/network/:uid/following" element={<Following />} />
                   <Route path="/network/:uid/followers" element={<Followers />} />
+                  <Route path="/all-users" element={<AllUsers />} />
                 </Routes>
               </div>
             </div>

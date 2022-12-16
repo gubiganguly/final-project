@@ -16,6 +16,8 @@ const Explore = () => {
       }
       {!currentUser &&
         < div className='Explore mt-3'>
+          <h2 className='text-muted'>Recent Posts</h2>
+          <hr></hr>
           <PostList />
         </div>
       }

@@ -23,7 +23,7 @@ const CreatePost = () => {
             position: currentUser.position,
             author: currentUser,
             caption: startPost,
-            // image: postImage
+            image: currentUser.image
           }
           dispatch(createPostThunk(newPost));
           dispatch(updateCurrentUserThunk({postCount: currentUser.postCount + 1}))
@@ -38,7 +38,7 @@ const CreatePost = () => {
     return (
         <div className="row mt-5 mb-3 ms-5 me-5"> 
             <div className="col-auto">
-                <img className="rounded-circle" src="/images/profile.jpeg" width={60} />
+                <img className="rounded-circle" src={currentUser.image} width={60} />
             </div>
             <div className="col-10">
                 <textarea value={startPost} placeholder="Start a post"

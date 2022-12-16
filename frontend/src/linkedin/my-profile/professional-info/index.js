@@ -42,8 +42,6 @@ const ProfessionalInfo = () => {
 
                     <Experience profile={profile} />
 
-                    <Education profile={profile} />
-
                     <Skills profile={profile} />
 
                     <Link className='btn bg-success rounded-3 border-0 pt-2 pb-2 ms-5 me-5 mt-3 mb-4' to='/' onClick={logout}>

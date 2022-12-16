@@ -58,7 +58,8 @@ const AddExperience = ({loginInfo}) => {
       state: state,
       country: country,
       experience: experience,
-      skills: skills
+      skills: skills,
+      role: 'USER'
     }
     dispatch(registerThunk(user))
   }

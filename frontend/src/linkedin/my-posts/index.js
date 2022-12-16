@@ -5,6 +5,7 @@ import PostItem from '../home/explore/post-list/post-item'
 import { useDispatch } from 'react-redux'
 import { findPostByAuthorThunk } from '../../services/posts-thunks'
 import { findUserByIdThunk } from '../../services/users-thunks'
+import { Link } from 'react-router-dom'
 
 const MyPosts = () => {
     let { posts } = useSelector(state => state.postData)
@@ -24,18 +25,16 @@ const MyPosts = () => {
         <>
             {publicProfile &&
                 <div className='row'>
-                    { params.author === currentUser._id &&
-                        <div>
-                            <h1 style={{color:"#97A2A8"}}>My Posts</h1>
-                            <hr></hr>
-                        </div>
-                        
-                    } 
-                    { params.author != currentUser._id &&
-                        <div>
-                            <h1 style={{color:"#97A2A8"}}>{publicProfile.firstName} {publicProfile.lastName}'s Posts</h1> 
-                        </div>
-                    }         
+ 
+            {publicProfile &&
+                <div className='row'>
+                    <Link to={`/profile/${publicProfile._id}`}>
+                        <img className='profilePic rounded-circle border border-4' width={125} src={publicProfile.image} alt='' />
+                    </Link>
+                    <h4 className='text-muted'>{publicProfile.firstName} {publicProfile.lastName}'s posts</h4>
+                    <hr></hr>
+                </div>
+            }        
                     <div className='col-2' />
                     <ul className="list-group col">
                         {posts &&

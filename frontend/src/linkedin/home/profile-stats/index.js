@@ -31,7 +31,7 @@ const ProfileStats = ({user}) => {
 
                     <div className='list-group-item caption'>
                         <div className='row'>
-                        <span className='fw-bold text-secondary col'>Connections:</span>
+                        <span className='fw-bold text-secondary col'>Followers:</span>
                         {followers &&
                             <span className='fw-bold text-primary col text-right'>{followers.length}</span>
                         }
@@ -42,7 +42,7 @@ const ProfileStats = ({user}) => {
                         </div>
                         <div className='row'>
                         <span className='fw-bold text-secondary float-start col'>Jobs:</span>
-                        <span className='fw-bold text-danger col text-right'>1</span>   
+                        <span className='fw-bold text-danger col text-right'>0</span>   
                         </div>
 
 

@@ -13,7 +13,7 @@ const PostItem = ({ post }) => {
         <li className="list-group-item rounded-3 mb-3 shadow-sm">
             <div className="row position-relative">
                 <Link className='col-1' to={`/profile/${post.author}`}>
-                    <img width={50} className="rounded-circle" src="/images/profile.jpeg" />
+                    <img width={50} className="rounded-circle" src={post.image} />
                 </Link>
                 <span className='name fw-bolder col-3 position-absolute'>
                     {post.firstName} {post.lastName}

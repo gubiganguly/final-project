@@ -21,8 +21,6 @@ const ProfessionalInfo = ({profile}) => {
 
                     <Experience profile={profile} />
 
-                    <Education profile={profile} />
-
                     <Skills profile={profile} />
                 </div>
       
